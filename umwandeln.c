@@ -47,7 +47,7 @@ int findeStelleInListe (char[] vorname , char[] nachname, List* l){
 		for (int i=0 ; i<100; i++){
 			int akutellEinzufugen = umwandeln (tmp.nachname [i]);	//für den unteren Vergleich müssen wir die beiden i-ten Buchstaben umwandeln 
 			int Listenelem = umwandeln (cursor.nachname [i]);		
-			if (akutellEinzufügen < Listenelem){		//in diesem Fall ist die richtige Stelle gefunden
+			if (akutellEinzufugen < Listenelem){		//in diesem Fall ist die richtige Stelle gefunden
 				return counter;	
 			}
 		}
@@ -57,7 +57,7 @@ int findeStelleInListe (char[] vorname , char[] nachname, List* l){
 		for (int i=0; i<100; i++){
 			int akutellEinzufugen = umwandeln (tmp.vorname [i]);	//für den unteren Vergleich müssen wir die beiden i-ten Buchstaben umwandeln 
 			int Listenelem = umwandeln (cursor.vorname [i]);		
-			if (akutellEinzufügen < Listenelem){		//in diesem Fall ist die richtige Stelle gefunden
+			if (akutellEinzufugen < Listenelem){		//in diesem Fall ist die richtige Stelle gefunden
 				return counter;	
 			}
 		}
