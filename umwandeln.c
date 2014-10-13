@@ -32,17 +32,38 @@ int  umwandeln (char buchstabe){
 		default: 28;
 		}
 	}
+	
+	// Findet die richtige Stelle, an die das Element eingefügt werden muss und gibt diese Stelle zurück 
 
-//ihr seid alle scheisse	
-
-void insert (char[] vorname , char[] nachname, List* l){
-	NODE cursor = l.head;
+int findeStelleInListe (char[] vorname , char[] nachname, List* l){
+	NODE cursor = l.head;	//erstellt einen Hilfscursor, der durch die Liste wandert, um die richtige Stelle zum einfügen zu finden
 	NODE tmp = malloc (sizeof NODE);
-	tmp.nachname = nachname;
+	tmp.nachname = nachname;	// Übergabe der Namen
 	tmp.vorname = vorname;
-	
-	
-	
+	int counter=0; 	//soll nachher die richtige Stelle angeben und zurückgegeben werden
+	if (l.head == NULL)return counter; 	//Spezialfall, dass die Liste leer ist 
+		
+	for (;cursor !=  NULL ; cursor= cursor.next){
+		for (int i=0 ; i<100; i++){
+			int akutellEinzufugen = umwandeln (tmp.nachname [i]);	//für den unteren Vergleich müssen wir die beiden i-ten Buchstaben umwandeln 
+			int Listenelem = umwandeln (cursor.nachname [i]);		
+			if (akutellEinzufügen < Listenelem){		//in diesem Fall ist die richtige Stelle gefunden
+				return counter;	
+			}
+		}
+			//kompletter Nachname ist durchlaufen und alle Felder waren gleich, dann kommt es zum Vergleich des Vornamens
+			
+			
+		for (int i=0; i<100; i++){
+			int akutellEinzufugen = umwandeln (tmp.vorname [i]);	//für den unteren Vergleich müssen wir die beiden i-ten Buchstaben umwandeln 
+			int Listenelem = umwandeln (cursor.vorname [i]);		
+			if (akutellEinzufügen < Listenelem){		//in diesem Fall ist die richtige Stelle gefunden
+				return counter;	
+			}
+		}
+		counter++;
+	}
+	// wenn er durch beide for-Schleifen komplett durchläuft muss man hier das Element ans Ende einfügen
 }	
 
 int main (){
