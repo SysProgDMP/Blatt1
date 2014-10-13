@@ -33,6 +33,8 @@ int  umwandeln (char buchstabe){
 		}
 	}
 
+//ihr seid alle scheisse	
+
 void insert (char[] vorname , char[] nachname, List* l){
 	NODE cursor = l.head;
 	NODE tmp = malloc (sizeof NODE);
