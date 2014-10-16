@@ -59,7 +59,6 @@ int vergleich (char* vorname, char* nachname, char* vorname1, char* nachname1){
 		if (i>=size(vorname1)) return -1;
 		int Intvor = umwandeln (vorname [i]);
 		int Intvor1 = umwandeln (vorname1 [i]);
-		printf (" %i und %i", Intvor, Intvor1);
 		if (Intvor <Intvor1) return 1;
 		if (Intvor > Intvor1) return -1;
 	}
@@ -70,8 +69,6 @@ int vergleich (char* vorname, char* nachname, char* vorname1, char* nachname1){
 		if (j>=size(nachname1)) return -1;
 		int Intvor = umwandeln (nachname [j]);
 		int Intvor1 = umwandeln (nachname1 [j]);
-				printf (" %i und %i", Intvor, Intvor1);
-
 		if (Intvor <Intvor1) return 1;
 		if (Intvor > Intvor1) return -1;
 	}	
