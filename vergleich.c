@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "vergleich.h"
 
 int  umwandeln (char buchstabe){
 	switch (buchstabe){
@@ -95,4 +96,5 @@ int main (){
 	free (gerd);
 	free (gerd1);
 	return 0;
-}
+} 
+
