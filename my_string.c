@@ -76,25 +76,3 @@ int vergleich (char* vorname, char* nachname, char* vorname1, char* nachname1){
 	return 0;
 }
 
-
-
-int main (){
-	char *hallo = malloc(2*sizeof(char));
-	*hallo= 'h';
-	*(hallo+1)= 'a';
-	char* hallo1= malloc (sizeof(char));
-	*hallo1='a';
-	char* gerd = malloc (2*sizeof(char));
-	*gerd='h';
-	*(gerd+1)='a';
-	char* gerd1 = malloc(sizeof(char));
-	*gerd1='h';
-	int i = vergleich (hallo, hallo1, gerd, gerd1);
-	printf ("%i",i);
-	free (hallo);
-	free (hallo1);
-	free (gerd);
-	free (gerd1);
-	return 0;
-} 
-
