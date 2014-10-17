@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "personen_liste.h"
 #include "mystring.h"
 #include <stdlib.h>
@@ -39,17 +41,18 @@ void insert(char *name, LIST *l){
 		return;
 	}
 		
-	cursor=cursor->next;
-	if(vergleich(vorn, nachn, cursor->vorname, cursor->nachname)<0){
+	
+	if(vergleich(tmp->vorname, tmp->nachname, cursor->vorname, cursor->nachname)<0){
 		tmp->next=cursor;
 		l->head=tmp;
 		return;
 	}
+	cursor=cursor->next;
 	NODE *cursor2=l->head;
 	while (cursor!=NULL){
-		if(vergleich(vorn, nachn, cursor->vorname, cursor->nachname)<0){
+		if(vergleich(tmp->vorname, tmp->nachname, cursor->vorname, cursor->nachname)<0){
 			tmp->next=cursor;
-			cursor2->=tmp;
+			cursor2->next=tmp;
 			return;
 		}
 		cursor=cursor->next;
@@ -70,6 +73,7 @@ void ausgabe(LIST *l){
 			printf("%c", cursor->nachname[i]);
 		}
 		printf("\n");
+		cursor=cursor->next;
 	}
 }
 
