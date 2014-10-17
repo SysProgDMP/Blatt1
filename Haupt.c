@@ -13,10 +13,10 @@ int main(){
 	}
 	LIST* list=malloc(1*sizeof(LIST));//Listpointer + zuweisen eines Listentyps
 	while (fgets(buffer, 205, f)){
-		//printf("%s ", buffer);
+		printf("%s ", buffer);
 		insert(buffer, list);;
 	}
-	
+	printf("\n Hier die Ausgabe\n");
 	fclose(f);
 	ausgabe(list);
 	//free_list(list);

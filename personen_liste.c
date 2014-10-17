@@ -58,20 +58,23 @@ void insert(char *name, LIST *l){
 		cursor=cursor->next;
 		cursor2=cursor2->next;
 	}
+	tmp->next=cursor;
+			cursor2->next=tmp;
 }
 
 void ausgabe(LIST *l){
-	int i;
+	//int i;
 	NODE *cursor=l->head;
 	while(cursor!=NULL){
-		for(i=0;cursor->vorname[i]!='\0';i++){
+		printf("%s %s", cursor->vorname, cursor->nachname);
+		/*for(i=0;cursor->vorname[i]!='\0';i++){
 			printf("%c", cursor->vorname[i]);
 		}
 		printf(" ");
 		
 		for(i=0;cursor->nachname[i]!='\0';i++){
 			printf("%c", cursor->nachname[i]);
-		}
+		}*/
 		printf("\n");
 		cursor=cursor->next;
 	}
