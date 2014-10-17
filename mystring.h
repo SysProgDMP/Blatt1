@@ -5,3 +5,4 @@
 int  umwandeln (char buchstabe);
 int size(char *ptr);
 int vergleich (char* vorname, char* nachname, char* vorname1, char* nachname1);
+#endif
