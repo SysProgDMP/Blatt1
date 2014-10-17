@@ -1,29 +1,21 @@
+#ifndef _PERSONEN_LIST_H
+#define _PERSONEN_LISTE_H
 
-// definiert die Struktur einer Liste
-typedef struct{
-	NODE* head;
-}LIST;
 //definiert die Struktur eines Nodes
-typedef struct{
-	NODE* next;
+typedef struct NODE{
+	struct NODE* next;
 	char* vorname;
 	char* nachname;
 }NODE;
-//fügt neues Element alphabetisch sortiert ein
-void insert(char* vorname, char* nachname, LIST* l){
-	NODE* tmp=malloc(sizeof(NODE));		//neues Node-Element erstellen
-	*tmp.vorname=*vorname;				//und...
-	*tmp.nachnme=*nachname;				//alles zuweisen
-	
-	NODE* cursor=*l.head;
-	while(cursor.next!=null){			//solange nicht am Ende der Liste
-		if(vergleich(vorname, nachname, *cursor.vorname, *cursor.nachname)<0){				//alphabetischer Vergleich
-			tmp.next=cursor.next;
-			cursor.next=tmp;
-		}
-		
-		else
-			cursor=cursor.next;
-	}
-	
-}
+// definiert die Struktur einer Liste
+typedef struct LIST{
+	NODE* head;
+}LIST;
+
+LIST *list_create();
+NODE *node_create(char *name);
+void insert(char*name, LIST* l);
+void ausgabe(LIST* l);
+void free_list(LIST *l);
+
+#endif
