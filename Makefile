@@ -1,11 +1,11 @@
-	OBJECTS = my_string.o personen_liste.o
+	OBJECTS = mystring.o personen_liste.o
 	CPPFLAGS = -g -Wall
 
 
 	prog: code.o mylist.o 
         gcc $(CPPFLAGS) -o prog $(OBJECTS)
         
-	my_string.o: my_string.c
+	mystring.o: mystring.c
           gcc $(CPPFLAGS) -c my_string.c
 
 	personen_liste.o: personen_liste.c
