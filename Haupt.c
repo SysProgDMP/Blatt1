@@ -6,7 +6,10 @@
 
 int main(){
 	char *buffer=malloc(205*sizeof(char));
-	FILE* f=fopen("hallo.txt", "rb");		//erstellt Filepointer und öffnet Textdatei zum lesen(im Binärmodus, da sonst Unix, Windows etc untersch. Erg.)
+	char filename;
+	printf("Bitte Dateipfad des einzulesenden Files eingeben:");
+	scanf("%s", &filename);
+	FILE* f=fopen(&filename, "rb");		//erstellt Filepointer und öffnet Textdatei zum lesen(im Binärmodus, da sonst Unix, Windows etc untersch. Erg.)
 	if(f==NULL){					//falls Datei nicht existiert Fehlermeldung + Programmende mit Fehler
 		printf("Datei existiert nicht, Programm wird beendet");
 		return 1;
@@ -19,7 +22,8 @@ int main(){
 	printf("\n Hier die Ausgabe\n");
 	fclose(f);
 	ausgabe(list);
-	//free_list(list);
+	free(buffer);
+	free_list(list);
 	return 0;
 
 }

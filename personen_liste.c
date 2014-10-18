@@ -13,7 +13,7 @@ LIST *list_create(){
 }
 
 NODE *node_create(char *name){
-	int i, j;
+	int i, j,cnt=0;
 	NODE *n=malloc(1*sizeof(NODE));
 	if(n==NULL){
 		printf("FEHLER beim Erstellen eines Nodes");
@@ -26,10 +26,14 @@ NODE *node_create(char *name){
 		}
 		n->vorname[i]='\0';
 		i++;
+		n->vorname=realloc(n->vorname,i*sizeof(char));
 		j=i;
 		for(;name[i]!='\0';i++){
 			n->nachname[i-j]=name[i];
+			cnt++;
 		}
+		n->nachname[i-j]=name[i];//test
+		n->nachname=realloc(n->nachname,(cnt+1)*sizeof(char));
 	return n;
 }
 
@@ -63,19 +67,9 @@ void insert(char *name, LIST *l){
 }
 
 void ausgabe(LIST *l){
-	//int i;
 	NODE *cursor=l->head;
 	while(cursor!=NULL){
-		printf("%s %s", cursor->vorname, cursor->nachname);
-		/*for(i=0;cursor->vorname[i]!='\0';i++){
-			printf("%c", cursor->vorname[i]);
-		}
-		printf(" ");
-		
-		for(i=0;cursor->nachname[i]!='\0';i++){
-			printf("%c", cursor->nachname[i]);
-		}*/
-		printf("\n");
+		printf("%s %s\n", cursor->vorname, cursor->nachname);
 		cursor=cursor->next;
 	}
 }
